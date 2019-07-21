@@ -101,6 +101,15 @@ namespace LuccaDevises.Converter
                 if (pathFound != null)
                     resultPaths.Add(pathFound);
             }
+
+
+#if DEBUG
+            foreach (var path in resultPaths)
+            {
+                Console.WriteLine(string.Join("=>", path.Select(a => $"{a.DeviseSource}-{a.DeviseCible}-{a.DeviseChangeRate}")));
+            }
+#endif
+
             if (resultPaths.Count == 1) return ProcessPath(resultPaths[0], toConvert.ValueToConvert);
             else if (resultPaths.Count > 1) return ProcessPath(resultPaths.OrderBy(rp => rp.Count).First(), toConvert.ValueToConvert);
             return Convert.ToInt32(0);
@@ -117,6 +126,10 @@ namespace LuccaDevises.Converter
 
         private int ProcessPath(List<DeviseChangeRateTuple> listChangeRates, double valueToConvert)
         {
+#if DEBUG
+            Console.WriteLine($"Chosen path : ");
+            Console.WriteLine($"{string.Join("=>", listChangeRates.Select(a => $"{a.DeviseSource}-{a.DeviseCible}-{a.DeviseChangeRate}"))}");
+#endif
             string chainDevise = string.Empty;
 
             var currentValue = valueToConvert; 

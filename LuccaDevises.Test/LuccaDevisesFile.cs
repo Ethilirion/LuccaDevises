@@ -25,7 +25,7 @@ namespace LuccaDevises.Test
             Assert.IsTrue(ldf.DevisesChangeRateTuples.Count == 6);
             Assert.IsTrue(ldf.NumberOfDevises == 6);
             Assert.IsTrue(ldf.DeviseToConvert.DeviseCible == "JPY");
-            Assert.IsTrue(ldf.DeviseToConvert.DeviseSource == "JPY");
+            Assert.IsTrue(ldf.DeviseToConvert.DeviseSource == "EUR");
             Assert.IsTrue(ldf.DeviseToConvert.ValueToConvert == 550);
         }
 

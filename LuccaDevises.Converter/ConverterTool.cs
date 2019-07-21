@@ -33,6 +33,18 @@ namespace LuccaDevises.Converter
             return val * 1 / dcrt.DeviseChangeRate;
         }
 
+        public static bool DevisesInPathList(string deviseSource, string deviseCible, List<DeviseChangeRateTuple> currentPath)
+        {
+            return (currentPath.Any(dcrt => dcrt.DeviseSource == deviseSource || dcrt.DeviseCible == deviseSource) &&
+                currentPath.Any(dcrt => dcrt.DeviseSource == deviseCible || dcrt.DeviseCible == deviseCible));
+        }
+
+        public List<DeviseChangeRateTuple> PopulatePaths(string deviseSource, string deviseCible, List<DeviseChangeRateTuple> currentPath)
+        {
+
+            return null;
+        }
+
         public int FindChange()
         {
             double res = 0;
@@ -44,7 +56,14 @@ namespace LuccaDevises.Converter
                     res = ConverterTool.ApplyRate(tuple, toConvert.ValueToConvert);
                     return Convert.ToInt32(res);
                 }
+                if (toConvert.EqualsInvertedDevises(tuple))
+                {
+                    res = ConverterTool.ApplyInvertRate(tuple, toConvert.ValueToConvert);
+                    return Convert.ToInt32(res);
+                }
             }
+
+            //foreach (var )
             return Convert.ToInt32(0);
         }
     }

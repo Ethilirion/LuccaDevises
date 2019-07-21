@@ -71,6 +71,16 @@ namespace LuccaDevises.Converter
             return dtc.DeviseCible == this.DeviseCible && dtc.DeviseSource == this.DeviseSource;
         }
 
+        public bool EqualsInvertedDevises(DeviseToConvert dtc)
+        {
+            return dtc.DeviseSource == this.DeviseCible && dtc.DeviseCible == this.DeviseSource;
+        }
+
+        public bool EqualsInvertedDevises(DeviseChangeRateTuple dtc)
+        {
+            return dtc.DeviseSource == this.DeviseCible && dtc.DeviseCible == this.DeviseSource;
+        }
+
         /// <summary>
         /// An object containing the devise to convert
         /// </summary>

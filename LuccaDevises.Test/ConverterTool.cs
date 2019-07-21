@@ -12,6 +12,19 @@ namespace LuccaDevises.Test
     public class ConverterTool_TestClass
     {
         [TestMethod]
+        public void TestSlightlyHarderConversion()
+        {
+            List<string> workingLines = new List<string>();
+            workingLines.Add("EUR;1000;JPY");
+            workingLines.Add("2");
+            workingLines.Add("EUR;CHF;0.5000");
+            workingLines.Add("CHF;JPY;2.0000");
+            var ldf = new LuccaDevisesFile(workingLines);
+            var ct = new ConverterTool(ldf);
+            int res = ct.ProcessChangeRate();
+        }
+
+        [TestMethod]
         public void TestEasyConversion()
         {
             try
@@ -28,7 +41,7 @@ namespace LuccaDevises.Test
                 workingLines.Add("EUR;JPY;2.0000");
                 var ldf = new LuccaDevisesFile(workingLines);
                 var ct = new ConverterTool(ldf);
-                int res = ct.FindChange();
+                int res = ct.ProcessChangeRate();
                 Assert.IsTrue(res == 1100);
             }
             catch (Exception e)
@@ -50,7 +63,7 @@ namespace LuccaDevises.Test
                 workingLines.Add("JPY;EUR;2.0000");
                 var ldf = new LuccaDevisesFile(workingLines);
                 var ct = new ConverterTool(ldf);
-                int res = ct.FindChange();
+                int res = ct.ProcessChangeRate();
                 Assert.IsTrue(res == 275);
             }
             catch (Exception e)

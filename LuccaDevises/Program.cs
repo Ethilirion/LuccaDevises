@@ -22,7 +22,7 @@ namespace LuccaDevises
             var file = parser.ParseFile();
 
             var converter = new ConverterTool(file);
-            int conversion = converter.FindChange();
+            int conversion = converter.ProcessChangeRate();
             Console.WriteLine(conversion);
             Console.ReadLine();
         }

@@ -77,6 +77,7 @@ namespace LuccaDevises.Converter
 
         public int ProcessChangeRate()
         {
+            double res = 0;
             var toConvert = _file.DeviseToConvert;
             foreach (var tuple in _file.DevisesChangeRateTuples)
             {

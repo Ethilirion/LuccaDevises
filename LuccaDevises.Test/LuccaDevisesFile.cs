@@ -27,6 +27,10 @@ namespace LuccaDevises.Test
             Assert.IsTrue(ldf.DeviseToConvert.DeviseCible == "JPY");
             Assert.IsTrue(ldf.DeviseToConvert.DeviseSource == "EUR");
             Assert.IsTrue(ldf.DeviseToConvert.ValueToConvert == 550);
+
+            var ct = new ConverterTool(ldf);
+            int res = ct.ProcessChangeRate();
+            Assert.AreEqual(res, 59033);
         }
 
         [TestMethod]

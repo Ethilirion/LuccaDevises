@@ -127,13 +127,13 @@ namespace LuccaDevises.Converter
                 // Last item
                 if (nextItem.Equals(default(DeviseChangeRateTuple)))
                 {
-                    if (chainDevise == currentItem.DeviseSource)
+                    if (chainDevise == currentItem.DeviseCible)
                     {
-                        currentValue = currentValue * 1 / currentItem.DeviseChangeRate;
+                        currentValue = Math.Round(currentValue * Math.Round(1.0 / currentItem.DeviseChangeRate, 4), 4);
                     }
-                    else if (chainDevise == currentItem.DeviseCible)
+                    else if (chainDevise == currentItem.DeviseSource)
                     {
-                        currentValue = currentValue * currentItem.DeviseChangeRate;
+                        currentValue = Math.Round(currentValue * currentItem.DeviseChangeRate, 4);
                     }
                 }
                 // All befores
@@ -142,15 +142,15 @@ namespace LuccaDevises.Converter
                     chainDevise = FindLink(currentItem, nextItem);
                     if (chainDevise == currentItem.DeviseSource)
                     {
-                        currentValue = currentValue * 1 / currentItem.DeviseChangeRate;
+                        currentValue = Math.Round(currentValue * Math.Round(1.0 / currentItem.DeviseChangeRate, 4), 4);
                     }
                     else if (chainDevise == currentItem.DeviseCible)
                     {
-                        currentValue = currentValue * currentItem.DeviseChangeRate;
+                        currentValue = Math.Round(currentValue * currentItem.DeviseChangeRate, 4);
                     }
                 }
             }
-            return Convert.ToInt32(currentValue);
+            return Convert.ToInt32(Math.Round(currentValue));
         }
     }
 }

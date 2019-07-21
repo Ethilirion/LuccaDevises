@@ -6,9 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-// Start 19:43
-// Break 3:30
 namespace LuccaDevises
 {
     class Program

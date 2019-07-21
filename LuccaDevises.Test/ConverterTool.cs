@@ -44,7 +44,7 @@ namespace LuccaDevises.Test
                 int res = ct.ProcessChangeRate();
                 Assert.IsTrue(res == 1100);
             }
-            catch (Exception e)
+            catch
             {
                 Assert.Fail();
             }
@@ -66,7 +66,7 @@ namespace LuccaDevises.Test
                 int res = ct.ProcessChangeRate();
                 Assert.IsTrue(res == 275);
             }
-            catch (Exception e)
+            catch
             {
                 Assert.Fail();
             }

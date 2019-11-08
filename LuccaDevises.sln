@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuccaDevises", "LuccaDevises\LuccaDevises.csproj", "{BDDCFB08-D7FF-4FFC-B819-D18498F1AF23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuccaDevises.Converter", "LuccaDevises.Converter\LuccaDevises.Converter.csproj", "{78F3A564-BF6D-4132-938A-D3666E4E749A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuccaDevises.Test", "LuccaDevises.Test\LuccaDevises.Test.csproj", "{4B16EF83-CF4A-4C88-8A83-1163ECDC830E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7374AC88-4E00-4D21-9E5B-DA5B9D483E44}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTests", "xUnitTests\xUnitTests.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,12 +28,15 @@ Global
 		{78F3A564-BF6D-4132-938A-D3666E4E749A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F3A564-BF6D-4132-938A-D3666E4E749A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F3A564-BF6D-4132-938A-D3666E4E749A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B16EF83-CF4A-4C88-8A83-1163ECDC830E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B16EF83-CF4A-4C88-8A83-1163ECDC830E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B16EF83-CF4A-4C88-8A83-1163ECDC830E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B16EF83-CF4A-4C88-8A83-1163ECDC830E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFA7E9F0-32AD-4607-81DA-301B1877D551}
 	EndGlobalSection
 EndGlobal

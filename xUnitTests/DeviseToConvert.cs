@@ -1,13 +1,12 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LuccaDevises.Converter;
+using Xunit;
 
 namespace LuccaDevises.Test
 {
-    [TestClass]
-    public class DeviseToConvert_TestClass
+    public class DeviseToConvert_TestClass : IDisposable
     {
-        [TestMethod]
+        [Fact]
         public void DeviseSourceFormat()
         {
             try
@@ -16,7 +15,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -24,7 +23,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -32,11 +31,11 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void DeviseCibleFormat()
         {
             try
@@ -45,7 +44,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -53,7 +52,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -61,7 +60,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -69,10 +68,10 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
         }
-        [TestMethod]
+        [Fact]
         public void ChangeRateFormat()
         {
             try
@@ -81,7 +80,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -89,7 +88,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -97,7 +96,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -105,7 +104,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -113,7 +112,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -121,17 +120,22 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void ValidEntity()
         {
             var dcrt1 = new DeviseToConvert("EUR", "550", "JPY");
-            Assert.AreEqual(dcrt1.ValueToConvert, 550);
-            Assert.AreEqual(dcrt1.DeviseSource, "EUR");
-            Assert.AreEqual(dcrt1.DeviseCible, "JPY");
+            Assert.Equal(dcrt1.ValueToConvert, 550);
+            Assert.Equal(dcrt1.DeviseSource, "EUR");
+            Assert.Equal(dcrt1.DeviseCible, "JPY");
+        }
+
+        public void Dispose()
+        {
+
         }
     }
 }

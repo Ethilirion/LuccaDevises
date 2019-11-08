@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LuccaDevises.Converter;
+﻿using LuccaDevises.Converter;
+using System;
+using Xunit;
 
 namespace LuccaDevises.Test
 {
-    [TestClass]
-    public class DeviseChangeRateTuple_TestClass
+    public class DeviseChangeRateTuple_TestClass : IDisposable
     {
-        [TestMethod]
+        [Fact]
         public void DeviseSourceFormat()
         {
             try
@@ -16,7 +15,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -24,7 +23,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -32,11 +31,11 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void DeviseCibleFormat()
         {
             try
@@ -45,7 +44,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -53,7 +52,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -61,7 +60,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
             try
             {
@@ -69,11 +68,11 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseFormat);
+                Assert.True(e is InvalidDeviseFormat);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void DuplicateDevise()
         {
             try
@@ -82,11 +81,11 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is DuplicateDevise);
+                Assert.True(e is DuplicateDevise);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void ChangeRateFormat()
         {
             try
@@ -95,7 +94,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -103,7 +102,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -111,7 +110,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -119,7 +118,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -127,7 +126,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
             try
             {
@@ -135,17 +134,21 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is InvalidDeviseChangeRateFormat);
+                Assert.True(e is InvalidDeviseChangeRateFormat);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void ValidEntity()
         {
             var dcrt1 = new DeviseChangeRateTuple("DEF", "DAF", "665678.2273");
-            Assert.AreEqual(dcrt1.DeviseChangeRate, 665678.2273);
-            Assert.AreEqual(dcrt1.DeviseSource, "DEF");
-            Assert.AreEqual(dcrt1.DeviseCible, "DAF");
+            Assert.Equal(dcrt1.DeviseChangeRate, 665678.2273);
+            Assert.Equal(dcrt1.DeviseSource, "DEF");
+            Assert.Equal(dcrt1.DeviseCible, "DAF");
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

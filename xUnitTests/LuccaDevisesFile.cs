@@ -1,14 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using LuccaDevises.Converter;
+using Xunit;
 
 namespace LuccaDevises.Test
 {
-    [TestClass]
-    public class LuccaDevisesFile_Test
+    public class LuccaDevisesFile_Test : IDisposable
     {
-        [TestMethod]
+        [Fact]
         public void LuccaDevisesFile_Constructor()
         {
             List<string> workingLines = new List<string>();
@@ -22,18 +21,18 @@ namespace LuccaDevises.Test
             workingLines.Add("JPY;INR;0.6571");
             var ldf = new LuccaDevisesFile(workingLines);
 
-            Assert.IsTrue(ldf.DevisesChangeRateTuples.Count == 6);
-            Assert.IsTrue(ldf.NumberOfDevises == 6);
-            Assert.IsTrue(ldf.DeviseToConvert.DeviseCible == "JPY");
-            Assert.IsTrue(ldf.DeviseToConvert.DeviseSource == "EUR");
-            Assert.IsTrue(ldf.DeviseToConvert.ValueToConvert == 550);
+            Assert.True(ldf.DevisesChangeRateTuples.Count == 6);
+            Assert.True(ldf.NumberOfDevises == 6);
+            Assert.True(ldf.DeviseToConvert.DeviseCible == "JPY");
+            Assert.True(ldf.DeviseToConvert.DeviseSource == "EUR");
+            Assert.True(ldf.DeviseToConvert.ValueToConvert == 550);
 
             var ct = new ConverterTool(ldf);
             int res = ct.ProcessChangeRate();
-            Assert.AreEqual(res, 59033);
+            Assert.Equal(res, 59033);
         }
 
-        [TestMethod]
+        [Fact]
         public void LuccaDevisesFile_MissingDevises()
         {
             try
@@ -51,7 +50,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is MissingDevise);
+                Assert.True(e is MissingDevise);
             }
             try
             {
@@ -68,11 +67,11 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is MissingDevise);
+                Assert.True(e is MissingDevise);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void LuccaDevisesFile_DoubleDevises()
         {
             try
@@ -91,7 +90,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is DoubleDeviseChangeRate);
+                Assert.True(e is DoubleDeviseChangeRate);
             }
             try
             {
@@ -109,11 +108,11 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is DoubleDeviseChangeRate);
+                Assert.True(e is DoubleDeviseChangeRate);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void LuccaDevisesFile_FailConstructor()
         {
             try
@@ -123,7 +122,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is IncorrectFile);
+                Assert.True(e is IncorrectFile);
             }
             try
             {
@@ -133,7 +132,7 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is IncorrectFile);
+                Assert.True(e is IncorrectFile);
             }
             try
             {
@@ -146,8 +145,12 @@ namespace LuccaDevises.Test
             }
             catch (Exception e)
             {
-                Assert.IsTrue(e is MisformatLine);
+                Assert.True(e is MisformatLine);
             }
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
